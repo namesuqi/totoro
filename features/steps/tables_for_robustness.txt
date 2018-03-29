@@ -1,0 +1,105 @@
+# -------------------------------------------------------------------------------------------------------------
+
+some common test data for field_check
+
+# -------------------------------------------------------------------------------------------------------------
+
+request parameter is empty
+	"" to object
+
+    Examples: not type string
+    | value | type   |
+    | -1    | int    |
+    | 0     | int    |
+    | 1     | int    |
+    | 0.0   | float  |
+    | 0.1   | float  |
+
+    Examples: not int type
+    | value | type   |
+    | ""    | object |
+    | " "   | object |
+    | 0     | str    |
+    | 0.0   | float  |
+    | 0.1   | float  |
+
+	Examples: not hexadecimal 32 bytes
+	| value                                       |
+	| a                                           |
+	| 00000000123451234512345                     |
+	| 1234567890123456789012345678931             |
+	| 1234567890123456789012345678932G            |
+	| 123456789012345678901234567890133           |
+	| 000000001234512345123451234AADBCFDABCDDADDD |
+	| ********************************            |
+
+	Examples: not hexadecimal 8 bytes
+	| value        |
+	| a            |
+	| 1234567      |
+	| 123456789    |
+	| 1234567G     |
+	| 01234567890  |
+	| ********     |
+
+	Examples: not bool type
+	| value | type   |
+	| ""    | object |
+	| " "   | object |
+	| 0     | str    |
+	| 0     | int    |
+	| 1     | int    |
+	| 0.0   | float  |
+	| 0.1   | float  |
+
+	Examples: not array type
+	| value  | type    |
+	| ""     | object  |
+	| " "    | object  |
+	| 0      | int     |
+	| 0.0    | float   |
+	| {}     | dict    |
+
+	Examples: valid ip
+	| value           |
+	| 0.0.0.0         |
+	| 1.1.1.1         |
+	| 254.254.254.254 |
+	| 255.255.255.255 |
+
+	Examples: invalid ip
+	| value           |
+	| 0               |
+	| ...             |
+	| 1.1.1           |
+	| 1.1.1.1.1       |
+	| 1.1.1.          |
+	| .1.1.1          |
+	| 1...1           |
+	| 255.255.255.256 |
+	| *.*.*.*         |
+
+	Examples: valid port
+	| value |
+	| 0     |
+	| 1     |
+	| 65534 |
+	| 65535 |
+
+	Examples: invalid port
+	| value  |
+	| -1     |
+	| 65536  |
+
+    Examples: invalid version
+    | value     |
+    | 4         |
+    | 4.0       |
+    | 4.0.0.0   |
+    | .0.0      |
+    | 4..0      |
+    | 4.0.      |
+    | 4.0.0.    |
+    | A.B.C     |
+
+# -------------------------------------------------------------------------------------------------------------

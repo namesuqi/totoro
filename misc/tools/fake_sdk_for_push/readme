@@ -1,0 +1,6 @@
+1.fake_sdk.py 模拟多个SDK（多线程实现）向vod-push下载整个文件，每秒至多发送10次请求，收到503隔3min重试
+2.fabfile.py 远程部署，收集日志
+3.log_handler.py 日志处理
+4.conf.py 配置参数
+5.start.sh 根据文件数量启动多个进程，并记录所有进程pid
+6.stop.sh 根据pid直接结束进程
